@@ -1,249 +1,347 @@
+import Image from "next/image";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
+import FeaturedCarousel from "@/components/FeaturedCarousel";
+import UiIcon from "@/components/UiIcon";
+import { CategoryCard, DeliveryModel, ProcessSteps, QuoteCta } from "@/components/sections";
+import { FaqList } from "@/components/seo";
+import { ButtonLink, CheckList, Container, SectionHeading } from "@/components/ui";
+import { featuredPhotos, getPhoto } from "@/data/portfolio";
+import { categories, categoryHref, servicePageHref, servicePages, type Faq } from "@/data/services";
+import { testimonials } from "@/data/testimonials";
+import { business } from "@/lib/business";
+import { pageMetadata } from "@/lib/metadata";
 
-const services = [
+export const metadata = pageMetadata({
+  title: "Hamile Engineering | Building, Welding & Maintenance Contractors in Gqeberha",
+  description:
+    "Building and civil construction, welding and steel fabrication, industrial pipe fitting, fuel storage tank fabrication and installation, carpentry, maintenance and renovations in Gqeberha.",
+  path: "/",
+  absoluteTitle: true,
+});
+
+const trust: { icon: IconName; title: string; text: string }[] = [
+  { icon: "tools", title: "Individual or bundled", text: "Hire one specialist trade, or bundle building, steel, pipework, fuel systems and more." },
+  { icon: "industry", title: "Residential to industrial", text: "Homes, rentals, commercial premises and industrial sites." },
+  { icon: "gear", title: "Workshop & on-site", text: "Fabrication in the workshop, installation and repairs on site." },
+  { icon: "handshake", title: "Clear quotations", text: `No-obligation quotes, with a response ${business.responseTime}.` },
+];
+
+const reasons: { icon: IconName; title: string; text: string }[] = [
+  { icon: "hard-hat", title: "Experienced, qualified artisans", text: "Qualified tradespeople who are talented in their fields and take pride in work that is level, square, secure and built to last." },
+  { icon: "team", title: "Hands-on, multiskilled managers", text: "Our managers understand every trade on site and lead the work in person, so decisions are made quickly and correctly." },
+  { icon: "blueprint", title: "Accurate blueprint interpretation", text: "We read engineering drawings and specifications accurately and build to them, without guesswork." },
+  { icon: "gear", title: "Simultaneous multi-trade operations", text: "Civil, steel, pipework and mechanical crews work in parallel under one plan, which shortens programmes." },
+  { icon: "stopwatch", title: "On time, with precision", text: "We plan properly, deliver to the agreed programme and get it right the first time." },
+  { icon: "calendar", title: "Reliable communication", text: "We confirm scope, timing and access upfront, and keep you updated while the work is underway." },
+];
+
+const sectors: { title: string; icon: IconName; text: string; who: string[]; links: string[] }[] = [
   {
-    icon: "🔧",
-    title: "Mechanical Engineering",
-    description:
-      "Design, analysis, and consultation for mechanical systems. From component selection to full system reviews.",
+    title: "Residential",
+    icon: "home-repair",
+    text: "For homeowners and landlords who want one dependable contractor for building work, decks, gates, repairs and renovations.",
+    who: ["Homeowners", "Landlords & property owners", "Property management companies"],
+    links: ["paving-driveways", "wooden-decking", "steel-gates-burglar-bars", "handyman-services", "bathroom-renovations"],
   },
   {
-    icon: "🏗️",
-    title: "Installations & Fitting",
-    description:
-      "Accurate installation of equipment, pipework, structural components, and mechanical assemblies.",
+    title: "Commercial",
+    icon: "handshake",
+    text: "For businesses, developers and contractors who need capable teams for slabs, paving, steelwork and maintenance — on schedule.",
+    who: ["Commercial businesses", "Property developers", "Building & construction contractors"],
+    links: ["concrete-slabs-foundations", "building-extensions", "carports-steel-structures", "renewable-energy-mechanical-installations", "roof-repairs-waterproofing"],
   },
   {
-    icon: "🔩",
-    title: "Maintenance & Repairs",
-    description:
-      "Planned maintenance schedules and reactive repairs to keep your machinery and facilities running smoothly.",
-  },
-  {
-    icon: "🏠",
-    title: "Home Handyman Services",
-    description:
-      "General household repairs, plumbing, electrical basics, and renovations handled by a skilled professional.",
-  },
-  {
-    icon: "🏭",
-    title: "Factory & Plant Support",
-    description:
-      "On-site engineering support for manufacturing plants, including breakdowns, upgrades, and compliance checks.",
-  },
-  {
-    icon: "🤝",
-    title: "Subcontractor Work",
-    description:
-      "Reliable, qualified support for construction and engineering subcontractors needing skilled hands on-site.",
+    title: "Industrial",
+    icon: "industry",
+    text: "For plants, fuel sites and maintenance departments that need pipe fitting, tank fabrication, fuel systems and shutdown support done safely.",
+    who: ["Industrial companies", "Maintenance departments", "Construction companies"],
+    links: ["industrial-pipe-fitting", "above-ground-fuel-tank-fabrication", "fuel-storage-dispensing-installation", "fuel-infrastructure-decommissioning", "industrial-maintenance-shutdowns"],
   },
 ];
 
-const clients = [
+const faqs: Faq[] = [
   {
-    icon: "🏡",
-    title: "Homeowners",
-    description:
-      "Get professional results on your repairs and renovations without the guesswork. We treat your home like our own.",
+    question: "What services does Hamile Engineering offer?",
+    answer:
+      "We offer building and civil construction, welding and steel fabrication, industrial pipe fitting and mechanical services, fuel storage and energy infrastructure (above-ground tank fabrication, fuel system installation, maintenance and decommissioning, and renewable energy mechanical installations), carpentry and woodwork, property maintenance and handyman services, and renovations. You can hire us for one specialised service or bundle several together.",
   },
   {
-    icon: "🏭",
-    title: "Factories & Plants",
-    description:
-      "Minimize downtime with expert mechanical support. From planned maintenance to emergency callouts.",
+    question: "Which areas do you serve?",
+    answer: `We are based in ${business.city} and serve ${business.serviceAreas.join(" and ")}. For projects further afield, send us the details and we will let you know if we can help.`,
   },
   {
-    icon: "🔨",
-    title: "Subcontractors",
-    description:
-      "Need a skilled pair of hands on your next project? We slot into your team seamlessly and deliver on time.",
+    question: "How do I get a quotation?",
+    answer:
+      "Use the quote request form, WhatsApp or call us. Include photos, measurements and the project location if you can — it helps us quote accurately and quickly.",
   },
-];
-
-const stats = [
-  { value: "10+", label: "Years Experience" },
-  { value: "200+", label: "Projects Completed" },
-  { value: "3", label: "Client Types Served" },
-  { value: "100%", label: "Commitment to Quality" },
+  {
+    question: "How much will my project cost?",
+    answer:
+      "Every job is different, so we price each one on its scope, materials, access and timing. Once we understand the work, you receive a clear, no-obligation quotation before anything starts.",
+  },
+  {
+    question: "Do you work for businesses and industrial clients as well as homeowners?",
+    answer:
+      "Yes. We work with homeowners, landlords, property managers, commercial businesses, building contractors, property developers and industrial maintenance departments.",
+  },
 ];
 
 export default function HomePage() {
+  const hero = getPhoto("concrete-slab-pour-screeding")!;
+  const team = getPhoto("team-on-site-concrete-pour")!;
+  const categoryNames = Object.fromEntries(categories.map((c) => [c.slug, c.shortName]));
+  const pageBySlug = Object.fromEntries(servicePages.map((p) => [p.slug, p]));
+
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#1e3a5f] text-white overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#f97316]/20 border border-[#f97316]/40 text-[#f97316] text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              <span>⚙</span> Mechanical Engineering & Skilled Handyman Services
-            </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-              Engineering Solutions,{" "}
-              <span className="text-[#f97316]">Built to Last</span>
+      <section className="relative isolate overflow-hidden bg-navy-dark text-white">
+        <Image
+          src={hero.src}
+          alt=""
+          fill
+          preload
+          sizes="100vw"
+          className="-z-10 object-cover object-[50%_35%] opacity-45"
+        />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-linear-to-r from-navy-dark via-navy-dark/85 to-navy/40" />
+        <Container className="py-20 md:py-28 lg:py-32">
+          <div className="animate-fade-up max-w-3xl">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/50 bg-accent/15 px-4 py-1.5 text-sm font-semibold text-accent-soft">
+              <UiIcon name="pin" className="h-4 w-4" />
+              Multi-trade contractors in {business.city}
+            </p>
+            <h1 className="text-4xl font-extrabold uppercase leading-[1.05] sm:text-5xl lg:text-6xl">
+              Building. Fabricating. Maintaining. <span className="text-accent">Delivering.</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
-              We bring mechanical engineering expertise and hands-on skilled labour to homeowners, factories, and
-              subcontractors. Quality work, every time.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
+              Professional building, civil construction, welding, steel fabrication, industrial pipe fitting, fuel storage
+              infrastructure, carpentry and property maintenance. Individual trades or bundled, run simultaneously and
+              delivered on time.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="bg-[#f97316] hover:bg-orange-500 text-white font-bold px-8 py-4 rounded-lg text-center transition-colors duration-200 text-lg"
-              >
-                Get a Free Quote
-              </Link>
-              <Link
-                href="/services"
-                className="border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-center transition-colors duration-200 text-lg"
-              >
-                View Our Services
-              </Link>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href="/contact#quote" size="lg" className="uppercase tracking-wide">
+                Request a Quote <UiIcon name="arrow-right" />
+              </ButtonLink>
+              <ButtonLink href="#our-work" variant="outline-light" size="lg" className="uppercase tracking-wide">
+                Explore Our Work
+              </ButtonLink>
             </div>
           </div>
-        </div>
+
+          {/* Quick service finder */}
+          <nav aria-label="Find a service" className="mt-14">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-white/70">What do you need?</p>
+            <ul className="flex flex-wrap gap-2">
+              {categories.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={categoryHref(c.slug)}
+                    className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-accent hover:text-ink"
+                  >
+                    <Icon name={c.icon} className="h-4 w-4" />
+                    {c.shortName}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </Container>
       </section>
 
-      {/* Stats bar */}
-      <section className="bg-[#163057] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="text-3xl md:text-4xl font-extrabold text-[#f97316]">{stat.value}</div>
-                <div className="text-sm text-gray-300 mt-1">{stat.label}</div>
-              </div>
+      {/* Trust indicators */}
+      <section aria-label="Why customers choose us" className="border-b border-navy/10 bg-white">
+        <Container>
+          <ul className="grid grid-cols-1 divide-y divide-navy/10 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+            {trust.map((t) => (
+              <li key={t.title} className="flex items-start gap-4 py-6 lg:px-6 lg:first:pl-0">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-accent-strong">
+                  <Icon name={t.icon} className="h-6 w-6" />
+                </span>
+                <span>
+                  <span className="block font-bold text-navy">{t.title}</span>
+                  <span className="mt-0.5 block text-sm text-ink/70">{t.text}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* Services overview */}
+      <section className="py-16 md:py-24" id="services">
+        <Container>
+          <SectionHeading
+            eyebrow="Our Services"
+            title="One contractor for building, steel, pipework, fuel systems, timber and maintenance"
+            intro="Choose a service to see exactly what's included — or request a quote and tell us what you need."
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((c) => (
+              <CategoryCard key={c.slug} category={c} />
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Services */}
-      <section className="py-20 bg-white" id="services">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">What We Do</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-lg">
-              A full range of mechanical engineering and skilled handyman services, tailored to your needs.
-            </p>
+      {/* Delivery model */}
+      <section className="bg-navy py-16 text-white md:py-24">
+        <Container>
+          <SectionHeading
+            tone="dark"
+            eyebrow="How We Deliver"
+            title="Individual services or bundled packages"
+            intro="Choose a single specialised service, or bundle several trades together. Either way, the work is managed by hands-on people and delivered on time."
+          />
+          <DeliveryModel tone="dark" />
+        </Container>
+      </section>
+
+      {/* Our work */}
+      <section id="our-work" className="bg-mist py-16 md:py-24">
+        <Container>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              align="left"
+              eyebrow="Our Work"
+              title="Real projects, real workmanship"
+              intro="Genuine photographs from our sites and workshop — concrete, paving, steel fabrication, pipe fitting, fuel tank installations, decking and maintenance."
+            />
+            <ButtonLink href="/our-work" variant="outline-dark" className="mb-10 self-start md:mb-14 md:self-auto">
+              View full portfolio <UiIcon name="arrow-right" className="h-4 w-4" />
+            </ButtonLink>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="group bg-[#f8f9fa] border border-gray-200 rounded-xl p-7 hover:border-[#f97316] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-lg font-bold text-[#1e3a5f] mb-2 group-hover:text-[#f97316] transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
+          <FeaturedCarousel photos={featuredPhotos} categoryNames={categoryNames} />
+        </Container>
+      </section>
+
+      {/* Why choose */}
+      <section className="py-16 md:py-24">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-12">
+            <div className="relative lg:col-span-5">
+              <div className="relative aspect-4/5 overflow-hidden rounded-2xl">
+                <Image
+                  src={team.src}
+                  alt={team.alt}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                />
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/services"
-              className="inline-block border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
-            >
-              See All Services
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Serve */}
-      <section className="py-20 bg-[#f0f4f8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">Who We Serve</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-lg">
-              Whether you are a homeowner, a factory manager, or a subcontractor, we have the skills for you.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {clients.map((client) => (
-              <div
-                key={client.title}
-                className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-              >
-                <div className="text-5xl mb-5">{client.icon}</div>
-                <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{client.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{client.description}</p>
+              <div className="absolute -bottom-6 -right-2 max-w-[16rem] rounded-xl bg-navy p-5 text-white shadow-xl sm:-right-6">
+                <p className="font-display text-lg font-extrabold">Concrete, steel, pipe and timber.</p>
+                <p className="mt-1 text-sm text-white/80">Multiple trades running at once, coordinated by one team.</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-6">
-                Why Choose <span className="text-[#f97316]">We Do Engineering?</span>
-              </h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                We bring real mechanical engineering knowledge together with hands-on trade experience. Every job gets
-                our full attention — from small home repairs to complex factory maintenance.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Qualified mechanical engineering background",
-                  "Practical, hands-on experience across multiple trades",
-                  "Reliable, on-time, and on-budget delivery",
-                  "Clear communication at every step",
-                  "Serving homeowners, factories, and subcontractors",
-                ].map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-gray-700">
-                    <span className="text-[#f97316] font-bold text-lg mt-0.5">✓</span>
-                    <span>{point}</span>
+            </div>
+            <div className="lg:col-span-7">
+              <SectionHeading
+                align="left"
+                eyebrow="Why Hamile Engineering"
+                title="Why choose Hamile Engineering"
+                intro="We are a hands-on, multi-trade team of experienced, qualified artisans led by managers who work on site. That means precise work, delivered on time, with fewer contractors to manage."
+              />
+              <ul className="grid gap-5 sm:grid-cols-2">
+                {reasons.map((r) => (
+                  <li key={r.title} className="flex gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy text-accent">
+                      <Icon name={r.icon} className="h-5 w-5" />
+                    </span>
+                    <span>
+                      <span className="block font-bold text-navy">{r.title}</span>
+                      <span className="mt-1 block text-sm leading-relaxed text-ink/70">{r.text}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/about"
-                className="inline-block mt-8 bg-[#1e3a5f] hover:bg-[#163057] text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
-              >
-                Learn More About Us
-              </Link>
-            </div>
-            <div className="bg-linear-to-br from-[#1e3a5f] to-[#163057] rounded-2xl p-10 text-white">
-              <div className="text-6xl mb-6 text-center">⚙️</div>
-              <blockquote className="text-lg italic text-gray-200 leading-relaxed text-center">
-                &ldquo;We don&apos;t just do the job — we engineer the solution. Every task, big or small, gets the
-                same level of care, precision, and professionalism.&rdquo;
-              </blockquote>
-              <div className="mt-6 text-center text-[#f97316] font-semibold">— We Do Engineering</div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-[#f97316]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to Get Started?</h2>
-          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Tell us what you need and we will get back to you with a no-obligation quote. Professional engineering and
-            handyman services, ready when you are.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-[#f97316] font-bold px-10 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg"
-            >
-              Contact Us Today
-            </Link>
-            <Link
-              href="/services"
-              className="border-2 border-white text-white font-semibold px-10 py-4 rounded-lg hover:bg-white/10 transition-colors text-lg"
-            >
-              Browse Services
-            </Link>
+      {/* Residential / commercial / industrial */}
+      <section className="bg-navy py-16 text-white md:py-24">
+        <Container>
+          <SectionHeading
+            tone="dark"
+            eyebrow="Who We Work With"
+            title="Residential, commercial and industrial solutions"
+            intro="The same standard of workmanship, whether it's a family home, a business premises or an industrial plant."
+          />
+          <div className="grid gap-6 lg:grid-cols-3">
+            {sectors.map((s) => (
+              <article key={s.title} className="flex flex-col rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-ink">
+                  <Icon name={s.icon} className="h-6 w-6" />
+                </span>
+                <h3 className="mt-5 text-2xl font-bold">{s.title}</h3>
+                <p className="mt-3 text-white/80">{s.text}</p>
+                <div className="mt-5">
+                  <CheckList items={s.who} tone="dark" />
+                </div>
+                <ul className="mt-6 flex flex-wrap gap-2 border-t border-white/10 pt-5">
+                  {s.links.map((slug) => {
+                    const p = pageBySlug[slug];
+                    return (
+                      <li key={slug}>
+                        <Link
+                          href={servicePageHref(p)}
+                          className="inline-block rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-white hover:bg-accent hover:text-ink"
+                        >
+                          {p.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </article>
+            ))}
           </div>
-        </div>
+        </Container>
       </section>
+
+      {/* Process */}
+      <section className="py-16 md:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="How It Works"
+            title="How our process works"
+            intro="Simple, transparent and professional from your first message to the final walk-through."
+          />
+          <ProcessSteps />
+        </Container>
+      </section>
+
+      {/* Testimonials — shown only when genuine testimonials have been added in src/data/testimonials.ts */}
+      {testimonials.length > 0 && (
+        <section className="bg-mist py-16 md:py-24">
+          <Container>
+            <SectionHeading eyebrow="Testimonials" title="What our customers say" />
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {testimonials.map((t) => (
+                <figure key={t.name + t.quote.slice(0, 20)} className="rounded-2xl bg-white p-7 ring-1 ring-navy/10">
+                  <blockquote className="leading-relaxed text-ink/80">&ldquo;{t.quote}&rdquo;</blockquote>
+                  <figcaption className="mt-5 font-bold text-navy">
+                    {t.name}
+                    {t.context && <span className="block text-sm font-normal text-ink/60">{t.context}</span>}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* FAQ */}
+      <section className="bg-mist py-16 md:py-24">
+        <Container className="max-w-4xl">
+          <SectionHeading eyebrow="FAQ" title="Frequently asked questions" />
+          <FaqList faqs={faqs} />
+        </Container>
+      </section>
+
+      <QuoteCta />
     </>
   );
 }

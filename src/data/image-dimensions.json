@@ -1,0 +1,166 @@
+{
+  "concrete-slab-pour-screeding": [
+    1200,
+    1600
+  ],
+  "commercial-concrete-slab-levelling": [
+    1200,
+    1600
+  ],
+  "slab-reinforcement-before-pour": [
+    1200,
+    1600
+  ],
+  "team-on-site-concrete-pour": [
+    1200,
+    1600
+  ],
+  "completed-concrete-slab": [
+    1280,
+    590
+  ],
+  "reinforcement-mesh-bar-spacers": [
+    590,
+    1280
+  ],
+  "foundation-rebar-mesh": [
+    1280,
+    590
+  ],
+  "excavation-site-works-team": [
+    1200,
+    1600
+  ],
+  "service-station-paving-works": [
+    1200,
+    1600
+  ],
+  "interlocking-paving-completed": [
+    1200,
+    1600
+  ],
+  "service-station-site-establishment": [
+    1600,
+    1200
+  ],
+  "service-station-canopy-site": [
+    1600,
+    1200
+  ],
+  "on-site-welding-steel-mesh-enclosure": [
+    1198,
+    1600
+  ],
+  "fabricated-steel-mesh-security-cages": [
+    1198,
+    1600
+  ],
+  "fabricated-steel-a-frame-stand": [
+    1200,
+    1600
+  ],
+  "batch-fabricated-steel-frames": [
+    1200,
+    1600
+  ],
+  "workshop-steel-fabrication-assembly": [
+    1200,
+    1600
+  ],
+  "steel-tank-fabrication-workshop": [
+    1200,
+    1600
+  ],
+  "boilermaking-workshop": [
+    1200,
+    1600
+  ],
+  "above-ground-fuel-tank-dispenser": [
+    1200,
+    1600
+  ],
+  "diesel-tank-dispenser-installation": [
+    1200,
+    1600
+  ],
+  "fuel-tank-installation-site": [
+    1200,
+    1600
+  ],
+  "flanged-pipe-fitting": [
+    1200,
+    1600
+  ],
+  "flanged-pipework-installation": [
+    1200,
+    1600
+  ],
+  "underground-pipework-trench": [
+    738,
+    1600
+  ],
+  "underground-tank-installation": [
+    1200,
+    1600
+  ],
+  "timber-clad-steel-framed-door": [
+    1280,
+    960
+  ],
+  "timber-garden-steps": [
+    960,
+    1280
+  ],
+  "timber-deck-plunge-pool": [
+    960,
+    1280
+  ],
+  "hardwood-pool-deck": [
+    640,
+    476
+  ],
+  "octagonal-tree-deck": [
+    1280,
+    960
+  ],
+  "roof-tile-pressure-cleaning": [
+    1200,
+    1600
+  ],
+  "roof-tile-cleaning-maintenance": [
+    1200,
+    1600
+  ],
+  "underground-fuel-tanks-installation": [
+    1040,
+    780
+  ],
+  "underground-tanks-excavation-commercial": [
+    1040,
+    780
+  ],
+  "tank-sumps-flexible-fuel-lines": [
+    1040,
+    780
+  ],
+  "dispenser-sump-valves-pipework": [
+    960,
+    1280
+  ],
+  "forecourt-dispenser-island-rebuild": [
+    1280,
+    960
+  ],
+  "fuel-dispenser-maintenance": [
+    960,
+    1280
+  ],
+  "tank-sump-submersible-pump": [
+    1200,
+    1600
+  ],
+  "pipe-installation-at-height": [
+    1200,
+    1600
+  ]
+}

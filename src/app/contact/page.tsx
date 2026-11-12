@@ -1,250 +1,99 @@
-"use client";
+import QuoteForm from "@/components/QuoteForm";
+import UiIcon, { type UiIconName } from "@/components/UiIcon";
+import { PageHero } from "@/components/sections";
+import { Breadcrumbs } from "@/components/seo";
+import { CheckList, Container, WhatsAppButton } from "@/components/ui";
+import { business } from "@/lib/business";
+import { pageMetadata } from "@/lib/metadata";
+import { quoteCatalog } from "@/lib/quote-catalog";
 
-import { useState } from "react";
+export const metadata = pageMetadata({
+  title: "Request a Quote – Contact Us",
+  description:
+    "Request a quotation from Hamile Engineering in Gqeberha. Send project details and photos online, WhatsApp us or call for building, welding, pipe fitting, carpentry and maintenance work.",
+  path: "/contact",
+});
 
-const contactInfo = [
-  {
-    icon: "📧",
-    label: "Email",
-    value: "info@wedoengineering.co.za",
-    href: "mailto:info@wedoengineering.co.za",
-  },
-  {
-    icon: "📞",
-    label: "Phone",
-    value: "+27 (0) 00 000 0000",
-    href: "tel:+270000000000",
-  },
-  {
-    icon: "📍",
-    label: "Location",
-    value: "South Africa",
-    href: null,
-  },
-  {
-    icon: "🕐",
-    label: "Hours",
-    value: "Mon – Fri: 7am – 5pm",
-    href: null,
-  },
-];
+export default async function ContactPage({ searchParams }: PageProps<"/contact">) {
+  const params = await searchParams;
+  const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
 
-const services = [
-  "Mechanical Engineering Consultation",
-  "Installations & Fitting",
-  "Maintenance & Repairs",
-  "Home Handyman Services",
-  "Factory & Plant Support",
-  "Subcontractor Work",
-  "Other",
-];
+  // Prefill from ?service=<category-slug>&item=<service name> links on service pages (validated against the catalogue).
+  const requestedCategory = one(params.service);
+  const category = quoteCatalog[requestedCategory] ? requestedCategory : "";
+  const requestedItem = one(params.item);
+  const service = category && quoteCatalog[category].services.includes(requestedItem) ? requestedItem : "";
 
-type FormState = {
-  name: string;
-  email: string;
-  phone: string;
-  service: string;
-  message: string;
-};
-
-export default function ContactPage() {
-  const [form, setForm] = useState<FormState>({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+  const contacts: { icon: UiIconName; label: string; value: string; href?: string; external?: boolean }[] = [
+    { icon: "phone", label: "Call us", value: business.phone, href: business.phoneHref },
+    { icon: "mail", label: "Email", value: business.email, href: `mailto:${business.email}` },
+    { icon: "pin", label: "Service area", value: business.serviceAreas.join(", ") },
+    { icon: "clock", label: "Hours", value: business.hours },
+  ];
 
   return (
     <>
-      {/* Header */}
-      <section className="bg-[#1e3a5f] text-white py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-[#f97316] font-semibold text-sm uppercase tracking-widest mb-3">Contact Us</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Get a Free Quote</h1>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Tell us about your project or problem and we will get back to you with a clear, no-obligation quote.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Contact Us"
+        title="Request a quote"
+        intro={`Tell us about your project and we'll get back to you ${business.responseTime} with next steps and a no-obligation quotation.`}
+      >
+        <Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} />
+      </PageHero>
 
-      {/* Content */}
-      <section className="py-20 bg-[#f8f9fa]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact info */}
-            <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-[#1e3a5f]">Contact Details</h2>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                Reach out directly or fill in the form and we will respond within one business day.
+      <section className="py-12 md:py-20">
+        <Container className="grid gap-10 lg:grid-cols-12">
+          <div id="quote" className="order-1 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/10 sm:p-8 md:p-10 lg:order-2 lg:col-span-8">
+            <QuoteForm key={`${category}|${service}`} catalog={quoteCatalog} initialCategory={category} initialService={service} />
+          </div>
+
+          <aside className="order-2 space-y-6 lg:order-1 lg:col-span-4">
+            <div className="rounded-2xl bg-navy p-7 text-white">
+              <h2 className="text-xl font-bold">Prefer WhatsApp?</h2>
+              <p className="mt-2 text-sm text-white/80">
+                Send us a message with photos of the job — it&apos;s often the quickest way to get started.
               </p>
-              <div className="space-y-4">
-                {contactInfo.map((item) => (
-                  <div key={item.label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#1e3a5f]/10 flex items-center justify-center text-xl flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400 font-semibold uppercase tracking-widest">{item.label}</p>
-                      {item.href ? (
-                        <a href={item.href} className="text-[#1e3a5f] font-medium hover:text-[#f97316] transition-colors">
-                          {item.value}
+              <WhatsAppButton variant="primary" size="lg" label="Chat on WhatsApp" className="mt-5 w-full" />
+            </div>
+
+            <div className="rounded-2xl bg-white p-7 ring-1 ring-navy/10">
+              <h2 className="text-lg font-bold text-navy">Contact details</h2>
+              <ul className="mt-5 space-y-4">
+                {contacts.map((c) => (
+                  <li key={c.label} className="flex items-start gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-accent-strong">
+                      <UiIcon name={c.icon} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-xs font-bold uppercase tracking-wider text-ink/60">{c.label}</span>
+                      {c.href ? (
+                        <a href={c.href} className="break-words font-semibold text-navy hover:text-accent-strong">
+                          {c.value}
                         </a>
                       ) : (
-                        <p className="text-[#1e3a5f] font-medium">{item.value}</p>
+                        <span className="block font-semibold text-navy">{c.value}</span>
                       )}
-                    </div>
-                  </div>
+                    </span>
+                  </li>
                 ))}
-              </div>
-
-              <div className="bg-[#1e3a5f] rounded-xl p-6 text-white mt-6">
-                <div className="text-2xl mb-3">⚙️</div>
-                <p className="font-semibold mb-1">Emergency Callouts</p>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  For urgent factory or plant breakdowns, please call us directly. We will do our best to respond as
-                  quickly as possible.
-                </p>
-              </div>
+              </ul>
             </div>
 
-            {/* Form */}
-            <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-10">
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center h-full py-12 text-center">
-                  <div className="text-6xl mb-4">✅</div>
-                  <h3 className="text-2xl font-bold text-[#1e3a5f] mb-3">Message Received!</h3>
-                  <p className="text-gray-500 max-w-sm">
-                    Thank you for reaching out. We will review your request and get back to you within one business day.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setForm({ name: "", email: "", phone: "", service: "", message: "" });
-                      setSubmitted(false);
-                    }}
-                    className="mt-8 border-2 border-[#1e3a5f] text-[#1e3a5f] hover:bg-[#1e3a5f] hover:text-white font-semibold px-6 py-2 rounded-lg transition-colors"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <h2 className="text-2xl font-bold text-[#1e3a5f]">Tell Us About Your Project</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
-                        Full Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        value={form.name}
-                        onChange={handleChange}
-                        placeholder="John Smith"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="john@example.com"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
-                        Phone Number
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={form.phone}
-                        onChange={handleChange}
-                        placeholder="+27 000 000 0000"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1.5">
-                        Service Needed <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="service"
-                        name="service"
-                        required
-                        value={form.service}
-                        onChange={handleChange}
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition bg-white"
-                      >
-                        <option value="">Select a service...</option>
-                        {services.map((s) => (
-                          <option key={s} value={s}>
-                            {s}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
-                      Describe Your Job <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={form.message}
-                      onChange={handleChange}
-                      placeholder="Please describe the work you need done, including location, urgency, and any relevant details..."
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#f97316] hover:bg-orange-500 text-white font-bold py-4 rounded-lg transition-colors text-lg"
-                  >
-                    Send My Enquiry
-                  </button>
-                  <p className="text-center text-xs text-gray-400">
-                    We will respond within one business day. No spam, no obligation.
-                  </p>
-                </form>
-              )}
+            <div className="rounded-2xl bg-mist p-7">
+              <h2 className="text-lg font-bold text-navy">For a faster, more accurate quote</h2>
+              <div className="mt-4 text-sm">
+                <CheckList
+                  items={[
+                    "Photos of the area or item",
+                    "Approximate measurements or quantities",
+                    "Drawings or specifications, if you have them",
+                    "Your preferred timing",
+                  ]}
+                />
+              </div>
             </div>
-          </div>
-        </div>
+          </aside>
+        </Container>
       </section>
     </>
   );

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 32 32" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<title>solar-panel</title>
+<circle cx="8" cy="6" r="2.5"/>
+<path d="M8 1v.5M2.5 6h.5M13 6h.5M4.2 2.2l.5.5M11.8 2.2l-.5.5"/>
+<path d="M5 14h18l4 9H9z"/>
+<path d="M11 14l4 9M17 14l4 9M7 18.5h18M18 23v5M14 28h8"/>
+</svg>

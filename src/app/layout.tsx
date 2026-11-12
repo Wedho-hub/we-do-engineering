@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Montserrat } from "next/font/google";
+import { Barlow_Semi_Condensed, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,26 +8,41 @@ import { JsonLd, businessJsonLd } from "@/components/seo";
 import { business } from "@/lib/business";
 import { siteKeywords } from "@/lib/metadata";
 import MotionProvider from "@/components/MotionProvider";
+import { preconnect } from "react-dom";
+import { cloudinaryEnabled } from "@/lib/cloudinary";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/*
+ * Type system — "engineered precision":
+ *  - Headings: Barlow Semi Condensed, modelled on DIN-style engineering and signage lettering.
+ *    Tight, upright and technical, it reads as measured and exact.
+ *  - Body: IBM Plex Sans, drawn for an engineering company; open shapes keep long copy readable.
+ *  - Labels, numbers and specs: IBM Plex Mono, used sparingly like annotations on a technical drawing.
+ */
+const bodyFont = IBM_Plex_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-// Montserrat matches the typeface specified in the Hamile Engineering logo artwork.
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const headingFont = Barlow_Semi_Condensed({
+  variable: "--font-heading",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
 });
 
+const monoFont = IBM_Plex_Mono({
+  variable: "--font-technical",
+  subsets: ["latin"],
+  weight: ["500", "600"],
+});
+
 const defaultDescription =
-  "Hamile Engineering – building and civil construction, welding and steel fabrication, industrial pipe fitting, carpentry, property maintenance and renovations in Gqeberha. Request a quote.";
+  "Hamile Engineering – building and civil construction, welding and steel fabrication, industrial pipe fitting, carpentry, property maintenance and renovations across South Africa and Southern Africa, from our base in Gqeberha. Request a quote.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(business.siteUrl),
   title: {
-    default: "Hamile Engineering | Building, Welding & Maintenance Contractors in Gqeberha",
+    default: "Hamile Engineering | Engineering, Building & Welding Contractors in South Africa",
     template: "%s | Hamile Engineering",
   },
   description: defaultDescription,
@@ -67,8 +82,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Open the connection to Cloudinary's CDN early so the hero photo isn't delayed.
+  if (cloudinaryEnabled) preconnect("https://res.cloudinary.com");
   return (
-    <html lang="en-ZA" data-scroll-behavior="smooth" className={`${geistSans.variable} ${montserrat.variable} h-full antialiased`}>
+    <html lang="en-ZA" data-scroll-behavior="smooth" className={`${bodyFont.variable} ${headingFont.variable} ${monoFont.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-surface text-ink">
         <a
           href="#main"

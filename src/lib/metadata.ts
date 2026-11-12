@@ -5,6 +5,12 @@ import { business } from "@/lib/business";
 export const siteKeywords = [
   "Hamile Engineering",
   "Hamile Contractors",
+  "engineering contractors South Africa",
+  "engineering company Southern Africa",
+  "steel fabrication South Africa",
+  "fuel tank installation South Africa",
+  "industrial pipe fitting South Africa",
+  "construction company South Africa",
   "engineering contractors Gqeberha",
   "building contractors Gqeberha",
   "construction company Port Elizabeth",

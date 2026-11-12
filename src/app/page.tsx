@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Photo";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
@@ -13,9 +13,9 @@ import { business } from "@/lib/business";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Hamile Engineering | Building, Welding & Maintenance Contractors in Gqeberha",
+  title: "Hamile Engineering | Engineering, Building & Welding Contractors in South Africa",
   description:
-    "Building and civil construction, welding and steel fabrication, industrial pipe fitting, fuel storage tank fabrication and installation, carpentry, maintenance and renovations in Gqeberha.",
+    "Building and civil construction, welding and steel fabrication, industrial pipe fitting, fuel storage tank fabrication and installation, carpentry, maintenance and renovations across South Africa and Southern Africa.",
   path: "/",
   absoluteTitle: true,
 });
@@ -68,7 +68,7 @@ const faqs: Faq[] = [
   },
   {
     question: "Which areas do you serve?",
-    answer: `We are based in ${business.city} and serve ${business.serviceAreas.join(" and ")}. For projects further afield, send us the details and we will let you know if we can help.`,
+    answer: `We are based in ${business.city} and take on projects across ${business.serviceAreaLabel}. Send us the project details and location and we will plan the logistics, travel and site set-up with you.`,
   },
   {
     question: "How do I get a quotation?",
@@ -110,7 +110,7 @@ export default function HomePage() {
           <div className="animate-fade-up max-w-3xl">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/50 bg-accent/15 px-4 py-1.5 text-sm font-semibold text-accent-soft">
               <UiIcon name="pin" className="h-4 w-4" />
-              Multi-trade contractors in {business.city}
+              Precision engineering &amp; construction · {business.serviceAreaShort}
             </p>
             <h1 className="text-4xl font-extrabold uppercase leading-[1.05] sm:text-5xl lg:text-6xl">
               Building. Fabricating. Maintaining. <span className="text-accent">Delivering.</span>
@@ -132,7 +132,7 @@ export default function HomePage() {
 
           {/* Quick service finder */}
           <nav aria-label="Find a service" className="mt-14">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-white/70">What do you need?</p>
+            <p className="mb-3 text-xs label-technical text-white/70">What do you need?</p>
             <ul className="flex flex-wrap gap-2">
               {categories.map((c) => (
                 <li key={c.slug}>

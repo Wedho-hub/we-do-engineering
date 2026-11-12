@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/Photo";
 import { useCallback, useEffect, useRef } from "react";
 import UiIcon from "@/components/UiIcon";
 import type { PortfolioPhoto } from "@/data/portfolio";

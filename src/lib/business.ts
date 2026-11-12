@@ -43,10 +43,17 @@ export const business = {
   region: "Eastern Cape",
   country: "ZA",
   /**
-   * Areas genuinely served. Confirm with the owner before adding more —
-   * these drive page copy and structured data.
+   * Areas served, confirmed by the owner: the whole of South Africa and the wider
+   * Southern African region, from the Gqeberha base. These drive page copy and structured data.
    */
-  serviceAreas: ["Gqeberha", "Nelson Mandela Bay"],
+  serviceAreas: [
+    { name: "South Africa", type: "Country" },
+    { name: "Southern Africa", type: "Place" },
+  ],
+  /** Short label for badges and inline copy. */
+  serviceAreaShort: "South Africa & Southern Africa",
+  /** Sentence-style label for body copy. */
+  serviceAreaLabel: "the whole of South Africa and the wider Southern African region",
 
   hours: "Mon – Fri: 07:00 – 17:00",
   responseTime: "within one business day",

@@ -10,7 +10,7 @@ import { quoteCatalog } from "@/lib/quote-catalog";
 export const metadata = pageMetadata({
   title: "Request a Quote – Contact Us",
   description:
-    "Request a quotation from Hamile Engineering in Gqeberha. Send project details and photos online, WhatsApp us or call for building, welding, pipe fitting, carpentry and maintenance work.",
+    "Request a quotation from Hamile Engineering — based in Gqeberha, working across South Africa and Southern Africa. Send project details and photos online, WhatsApp us or call for building, welding, pipe fitting, carpentry and maintenance work.",
   path: "/contact",
 });
 
@@ -27,7 +27,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
   const contacts: { icon: UiIconName; label: string; value: string; href?: string; external?: boolean }[] = [
     { icon: "phone", label: "Call us", value: business.phone, href: business.phoneHref },
     { icon: "mail", label: "Email", value: business.email, href: `mailto:${business.email}` },
-    { icon: "pin", label: "Service area", value: business.serviceAreas.join(", ") },
+    { icon: "pin", label: "Service area", value: business.serviceAreaShort },
     { icon: "clock", label: "Hours", value: business.hours },
   ];
 

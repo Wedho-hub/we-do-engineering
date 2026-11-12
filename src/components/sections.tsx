@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Photo";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import IllustrationPanel from "@/components/IllustrationPanel";
@@ -78,7 +78,7 @@ export function ProcessSteps({ tone = "light" }: { tone?: "light" | "dark" }) {
           key={s.title}
           className={`relative rounded-2xl p-6 ${tone === "dark" ? "bg-white/5 ring-1 ring-white/10" : "bg-white ring-1 ring-navy/10"}`}
         >
-          <span className="font-display text-4xl font-extrabold text-accent">{String(i + 1).padStart(2, "0")}</span>
+          <span className="font-mono text-3xl font-semibold tabular-nums text-accent">{String(i + 1).padStart(2, "0")}</span>
           <h3 className={`mt-3 text-lg font-bold ${tone === "dark" ? "text-white" : "text-navy"}`}>{s.title}</h3>
           <p className={`mt-2 text-sm leading-relaxed ${tone === "dark" ? "text-white/75" : "text-ink/70"}`}>{s.text}</p>
         </li>
@@ -204,11 +204,11 @@ export function PageHero({
       <div aria-hidden="true" className="absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-navy-dark to-transparent" />
       <Container className="relative py-14 md:py-20">
         {children}
-        <p className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-soft">
-          <span aria-hidden="true" className="h-0.5 w-6 bg-accent" />
+        <p className="label-technical mb-3 inline-flex items-center gap-2.5 text-xs text-accent-soft">
+          <span aria-hidden="true" className="dimension-line" />
           {eyebrow}
         </p>
-        <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">{title}</h1>
+        <h1 className="max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">{title}</h1>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">{intro}</p>
       </Container>
     </section>

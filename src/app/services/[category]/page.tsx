@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps<"/services/[categor
     description: category.seoDescription,
     path: categoryHref(category.slug),
     image: photo ? { url: photo.src, width: photo.width, height: photo.height, alt: photo.alt } : undefined,
-    keywords: [category.name, `${category.name} Gqeberha`, `${category.name} Port Elizabeth`, `${category.name} Eastern Cape`],
+    keywords: [category.name, `${category.name} South Africa`, `${category.name} Southern Africa`, `${category.name} Gqeberha`],
   });
 }
 
@@ -54,7 +54,7 @@ export default async function CategoryPage({ params }: PageProps<"/services/[cat
         <Container className="relative grid items-center gap-10 py-12 md:py-16 lg:grid-cols-2">
           <div>
             <Breadcrumbs items={[{ name: "Services", href: "/services" }, { name: category.name, href: categoryHref(category.slug) }]} />
-            <Eyebrow tone="dark">Serving {business.serviceAreas.join(" & ")}</Eyebrow>
+            <Eyebrow tone="dark">Serving {business.serviceAreaShort}</Eyebrow>
             <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">{category.name}</h1>
             <p className="mt-5 text-lg leading-relaxed text-white/85">{category.intro[0]}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -202,7 +202,7 @@ export default async function CategoryPage({ params }: PageProps<"/services/[cat
           description: category.seoDescription,
           url: absoluteUrl(categoryHref(category.slug)),
           provider: { "@id": absoluteUrl("/#business") },
-          areaServed: business.serviceAreas.map((name) => ({ "@type": "City", name })),
+          areaServed: business.serviceAreas.map((a) => ({ "@type": a.type, name: a.name })),
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: category.name,

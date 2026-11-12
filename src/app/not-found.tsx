@@ -9,7 +9,7 @@ export default function NotFound() {
   return (
     <section className="py-20 md:py-28">
       <Container className="max-w-3xl text-center">
-        <p className="font-display text-6xl font-extrabold text-accent">404</p>
+        <p className="font-mono text-6xl font-semibold tabular-nums text-accent">404</p>
         <h1 className="mt-4 text-3xl font-extrabold text-navy md:text-4xl">We couldn&apos;t find that page</h1>
         <p className="mt-4 text-lg text-ink/70">It may have moved. Try one of our services below, or request a quote.</p>
         <ul className="mt-10 grid gap-3 text-left sm:grid-cols-2">

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/Photo";
 import { useRef, useState } from "react";
 import Lightbox from "@/components/Lightbox";
 import UiIcon from "@/components/UiIcon";

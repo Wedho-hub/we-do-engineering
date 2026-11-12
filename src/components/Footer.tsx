@@ -15,7 +15,7 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink pb-24 text-white/75 lg:pb-0">
+    <footer className="bg-ink pb-24 text-white/75">
       <div className="h-1 bg-accent" />
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12">
@@ -25,12 +25,12 @@ export default function Footer() {
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed">
               Building, civil construction, welding and steel fabrication, industrial pipe fitting, carpentry, property
-              maintenance and renovations — for homes, businesses and industry in {business.city}.
+              maintenance and renovations — for homes, businesses and industry across South Africa and the region.
             </p>
           </div>
 
           <div className="lg:col-span-4">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white">Services</h2>
+            <h2 className="label-technical mb-4 text-xs text-white">Services</h2>
             <ul className="space-y-2.5 text-sm">
               {categories.map((c) => (
                 <li key={c.slug}>
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white">Company</h2>
+            <h2 className="label-technical mb-4 text-xs text-white">Company</h2>
             <ul className="space-y-2.5 text-sm">
               {quickLinks.map((l) => (
                 <li key={l.href}>
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white">Get in Touch</h2>
+            <h2 className="label-technical mb-4 text-xs text-white">Get in Touch</h2>
             <ul className="space-y-3 text-sm">
               <li>
                 <a href={business.phoneHref} className="flex items-start gap-2 hover:text-accent-soft">
@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <UiIcon name="pin" className="mt-0.5 h-4 w-4 text-accent" />
-                {business.serviceAreas.join(", ")}
+                {business.serviceAreaShort}
               </li>
               <li className="flex items-start gap-2">
                 <UiIcon name="clock" className="mt-0.5 h-4 w-4 text-accent" />
@@ -93,24 +93,39 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/60 sm:flex-row sm:justify-between">
+        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/60 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} Hamile Engineering. All rights reserved.</p>
           <p>Photos in our portfolio are of genuine Hamile Engineering work unless marked as illustrations.</p>
-          <p>
-            Developed by{" "}
-            {developer.url ? (
-              <a
-                href={developer.url}
-                target="_blank"
-                rel="noopener"
-                className="font-semibold text-white/80 underline decoration-accent underline-offset-2 hover:text-accent-soft"
+        </div>
+
+        {/* Developer credit: its own row, clear of the floating WhatsApp button and the mobile contact bar. */}
+        <div className="mt-8 flex justify-center lg:justify-start">
+          {developer.url ? (
+            <a
+              href={developer.url}
+              target="_blank"
+              rel="noopener"
+              data-reveal="pop"
+              className="group inline-flex items-center gap-3 rounded-full border border-accent/60 bg-accent/10 py-2 pl-4 pr-2 text-white shadow-[0_0_24px_-6px_rgba(249,115,22,0.55)] transition-colors hover:border-accent hover:bg-accent/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              <span className="label-technical text-[0.65rem] text-white/70">Website by</span>
+              <span className="font-display text-lg font-bold tracking-wide text-accent-soft">{developer.name}</span>
+              <span
+                aria-hidden="true"
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-ink transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               >
-                {developer.name}
-              </a>
-            ) : (
-              <span className="font-semibold text-white/80">{developer.name}</span>
-            )}
-          </p>
+                <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 11 11 5M6 5h5v5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          ) : (
+            <p className="inline-flex items-center gap-3 rounded-full border border-accent/60 bg-accent/10 px-4 py-2">
+              <span className="label-technical text-[0.65rem] text-white/70">Website by</span>
+              <span className="font-display text-lg font-bold tracking-wide text-accent-soft">{developer.name}</span>
+            </p>
+          )}
         </div>
       </div>
     </footer>

@@ -31,8 +31,9 @@
   --color-surface: #f8f9fa;
   --color-mist: #f0f4f8;
 
-  --font-sans: var(--font-geist-sans);
-  --font-display: var(--font-montserrat);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-technical), ui-monospace, monospace;
 }
 
 body {
@@ -46,11 +47,58 @@ html {
   scroll-padding-top: 7.5rem;
 }
 
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "kern", "liga";
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings: condensed, engineered letterforms with a firm, even rhythm. */
 h1,
 h2,
-h3 {
-  font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.01em;
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+
+/* Long-form copy: comfortable measure and no orphaned last words. */
+p {
+  text-wrap: pretty;
+}
+
+/* Technical annotation style for small labels and figures (mono, tabular numbers). */
+.label-technical {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+/* Dimension line: a rule with end ticks, as drawn on engineering drawings. */
+.dimension-line {
+  position: relative;
+  display: inline-block;
+  height: 2px;
+  width: 1.75rem;
+  background: var(--color-accent);
+}
+.dimension-line::before,
+.dimension-line::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 10px;
+  background: var(--color-accent);
+}
+.dimension-line::before {
+  left: 0;
+}
+.dimension-line::after {
+  right: 0;
 }
 
 /* Subtle entrance animation for hero content */

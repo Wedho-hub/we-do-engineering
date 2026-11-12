@@ -8,7 +8,7 @@ import { categories, categoryHref, servicePageHref, servicePagesFor } from "@/da
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Contractor Services in Gqeberha",
+  title: "Engineering & Contractor Services in South Africa",
   description:
     "All Hamile Engineering services: building and civil construction, welding and steel fabrication, industrial pipe fitting, fuel storage and energy infrastructure, carpentry, maintenance and renovations.",
   path: "/services",

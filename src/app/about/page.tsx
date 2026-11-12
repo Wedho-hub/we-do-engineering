@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Photo";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { DeliveryModel, PageHero, ProcessSteps, QuoteCta } from "@/components/sections";
@@ -12,7 +12,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "About Us – Multi-Trade Contractors",
   description:
-    "About Hamile Engineering: a hands-on, multi-trade team delivering building, steel fabrication, pipe fitting, fuel storage infrastructure, carpentry, maintenance and renovation work in Gqeberha.",
+    "About Hamile Engineering: a hands-on, multi-trade team delivering building, steel fabrication, pipe fitting, fuel storage infrastructure, carpentry, maintenance and renovation work across South Africa and Southern Africa.",
   path: "/about",
 });
 
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <SectionHeading align="left" eyebrow="Who We Are" title="Practical skills across the trades" />
             <div className="space-y-4 text-lg leading-relaxed text-ink/75">
               <p>
-                We are a {business.city}-based contractor working on homes, commercial properties, construction sites and
+                We are a {business.city}-based contractor working across South Africa and the wider region on homes, commercial properties, construction sites and
                 industrial facilities. Our team works across concrete and civil works, welding and steel fabrication,
                 industrial pipe fitting, fuel storage and dispensing infrastructure, renewable energy mechanical
                 installations, carpentry, maintenance and renovations.

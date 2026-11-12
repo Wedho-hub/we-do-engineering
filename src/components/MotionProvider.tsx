@@ -18,7 +18,7 @@ const PRESSABLE = "a, button, summary, [role='button'], [data-press]";
  *
  * Instead of wiring animations into every page, it finds common building blocks inside <main>
  * (section headings, card grids, images, FAQ items) and animates them as they enter the viewport.
- * Pages can opt elements in with `data-reveal` or out with `data-no-motion`.
+ * Elements anywhere can opt in with `data-reveal` (or `data-reveal="pop"`), or out with `data-no-motion`.
  *
  * - Only content that starts below the fold is animated, so nothing visible on load ever flickers
  *   and all content stays in the server-rendered HTML for search engines.
@@ -50,14 +50,17 @@ export default function MotionProvider() {
         return out;
       };
 
-      // 1. Explicit opt-ins.
-      take(gsap.utils.toArray<Element>("[data-reveal]", main)).forEach((el) => {
+      // 1. Explicit opt-ins, anywhere on the page (including the footer).
+      //    data-reveal="pop" springs in with a slight overshoot for elements that should stand out.
+      take(gsap.utils.toArray<HTMLElement>("[data-reveal]")).forEach((el) => {
+        const pop = el.getAttribute("data-reveal") === "pop";
         gsap.from(el, {
           autoAlpha: 0,
-          y: 40,
+          y: pop ? 16 : 40,
+          scale: pop ? 0.85 : 1,
           duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          ease: pop ? "back.out(2)" : "power3.out",
+          scrollTrigger: { trigger: el, start: pop ? "top 98%" : "top 88%", once: true },
         });
       });
 

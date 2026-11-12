@@ -36,7 +36,7 @@ export function businessJsonLd(): Record<string, unknown> {
     url: absoluteUrl("/"),
     logo: absoluteUrl("/brand/hamile-contractors-logo.png"),
     image: absoluteUrl("/opengraph-image.png"),
-    areaServed: business.serviceAreas.map((name) => ({ "@type": "City", name })),
+    areaServed: business.serviceAreas.map((a) => ({ "@type": a.type, name: a.name })),
     address: {
       "@type": "PostalAddress",
       addressLocality: business.city,

@@ -12,11 +12,11 @@ export function Container({ className = "", children }: { className?: string; ch
 export function Eyebrow({ children, tone = "light" }: { children: ReactNode; tone?: "light" | "dark" }) {
   return (
     <p
-      className={`mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] ${
+      className={`label-technical mb-3 inline-flex items-center gap-2.5 text-xs ${
         tone === "dark" ? "text-accent-soft" : "text-accent-strong"
       }`}
     >
-      <span aria-hidden="true" className="h-0.5 w-6 bg-accent" />
+      <span aria-hidden="true" className="dimension-line" />
       {children}
     </p>
   );
@@ -41,7 +41,7 @@ export function SectionHeading({
     <div className={`mb-10 md:mb-14 ${align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
       {eyebrow && <Eyebrow tone={tone}>{eyebrow}</Eyebrow>}
       <Tag
-        className={`text-3xl font-extrabold leading-tight md:text-4xl ${tone === "dark" ? "text-white" : "text-navy"}`}
+        className={`text-3xl font-bold leading-[1.1] md:text-[2.75rem] ${tone === "dark" ? "text-white" : "text-navy"}`}
       >
         {title}
       </Tag>

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps<"/services/[categor
     description: page.seoDescription,
     path: servicePageHref(page),
     image: photo ? { url: photo.src, width: photo.width, height: photo.height, alt: photo.alt } : undefined,
-    keywords: [page.name, `${page.name} Gqeberha`, `${page.name} Port Elizabeth`, `${page.name} Eastern Cape`],
+    keywords: [page.name, `${page.name} South Africa`, `${page.name} Southern Africa`, `${page.name} Gqeberha`],
   });
 }
 
@@ -124,7 +124,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             <div className="sticky top-32 rounded-2xl bg-navy p-7 text-white">
               <h2 className="text-xl font-bold">Request a quote for {page.name.toLowerCase()}</h2>
               <p className="mt-2 text-white/80">
-                Serving {business.serviceAreas.join(" & ")}. We respond {business.responseTime}.
+                Serving {business.serviceAreaShort}. We respond {business.responseTime}.
               </p>
               <div className="mt-6 grid gap-3">
                 <ButtonLink href={quoteHref(category.slug, page.prefillService)} size="lg">
@@ -199,7 +199,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           url: absoluteUrl(servicePageHref(page)),
           category: category.name,
           provider: { "@id": absoluteUrl("/#business") },
-          areaServed: business.serviceAreas.map((name) => ({ "@type": "City", name })),
+          areaServed: business.serviceAreas.map((a) => ({ "@type": a.type, name: a.name })),
         }}
       />
     </>

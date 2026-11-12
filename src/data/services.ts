@@ -62,9 +62,9 @@ export const categories: ServiceCategory[] = [
       "From setting out and excavation to the final screed, we handle the structural groundwork that every good build depends on. Our team prepares sites, fixes reinforcement, pours and finishes concrete, and builds the walls, paving and drainage around it.",
       "We work on homes, commercial premises and larger construction sites — either as your main contractor for smaller builds or as a reliable subcontractor alongside your own team.",
     ],
-    seoTitle: "Building & Concrete Contractors in Gqeberha",
+    seoTitle: "Building & Concrete Contractors in South Africa",
     seoDescription:
-      "Building and civil construction in Gqeberha: concrete foundations and slabs, bricklaying, paving, retaining walls, extensions and site preparation. Request a quote.",
+      "Building and civil construction across South Africa: concrete foundations and slabs, bricklaying, paving, retaining walls, extensions and site preparation. Request a quote.",
     image: "concrete-slab-pour-screeding",
     audiences: ["Homeowners", "Property developers", "Building contractors", "Commercial businesses"],
     services: [
@@ -115,9 +115,9 @@ export const categories: ServiceCategory[] = [
       "We fabricate and repair steelwork in the workshop and on site — from security gates and burglar bars to steel frames, platforms, enclosures and structural members.",
       "Whether you need a one-off custom piece, a batch of identical frames or an urgent on-site weld repair, we measure carefully, fabricate to fit and finish the job properly.",
     ],
-    seoTitle: "Welding & Steel Fabrication in Gqeberha",
+    seoTitle: "Welding & Steel Fabrication in South Africa",
     seoDescription:
-      "Welding and steel fabrication in Gqeberha: on-site welding, structural steel, steel gates, burglar bars, carports, staircases, handrails and repairs. Get a quote.",
+      "Welding and steel fabrication across South Africa: on-site welding, structural steel, steel gates, burglar bars, carports, staircases, handrails and repairs. Get a quote.",
     image: "on-site-welding-steel-mesh-enclosure",
     audiences: ["Homeowners", "Commercial businesses", "Industrial companies", "Building contractors"],
     services: [
@@ -171,7 +171,7 @@ export const categories: ServiceCategory[] = [
     ],
     seoTitle: "Industrial Pipe Fitting & Mechanical Services",
     seoDescription:
-      "Industrial pipe fitting in Gqeberha: steel and stainless pipework, flanges, pipe fabrication and repairs, mechanical installation, maintenance and shutdown support.",
+      "Industrial pipe fitting across South Africa: steel and stainless pipework, flanges, pipe fabrication and repairs, mechanical installation, maintenance and shutdown support.",
     image: "flanged-pipe-fitting",
     audiences: ["Industrial companies", "Maintenance departments", "Construction companies", "Commercial businesses"],
     services: [
@@ -220,7 +220,7 @@ export const categories: ServiceCategory[] = [
       "These projects bring civil works, steel fabrication, pipe fitting and mechanical installation together on one site. Our teams run those trades side by side — excavation and concrete crews alongside fitters and fabricators — under hands-on managers who read the engineering drawings and keep every trade working to the same programme.",
       "We also handle the mechanical side of renewable energy installations, such as mounting structures and support steelwork, working with qualified electricians who carry out and certify all electrical work.",
     ],
-    seoTitle: "Fuel Tank Fabrication & Installation | Gqeberha",
+    seoTitle: "Fuel Tank Fabrication & Installation | South Africa",
     seoDescription:
       "Above-ground bulk fuel tank fabrication, fuel storage and dispensing installation, maintenance and safe decommissioning, plus renewable energy mechanical installations.",
     image: "underground-fuel-tanks-installation",
@@ -272,9 +272,9 @@ export const categories: ServiceCategory[] = [
       "We build practical, good-looking timber work for homes and businesses — decks around pools and trees, garden steps, pergolas, timber-clad doors and screens, cupboards and shelving.",
       "Every piece is measured and built for its space, using suitable timber and fixings for indoor or outdoor conditions.",
     ],
-    seoTitle: "Carpentry & Wooden Decking in Gqeberha",
+    seoTitle: "Carpentry & Wooden Decking in South Africa",
     seoDescription:
-      "Carpentry services in Gqeberha: wooden decking installation, pergolas, kitchen cupboards, built-in wardrobes, wooden doors, shelving and repairs. Request a quote.",
+      "Carpentry services across South Africa: wooden decking installation, pergolas, kitchen cupboards, built-in wardrobes, wooden doors, shelving and repairs. Request a quote.",
     image: "timber-deck-plunge-pool",
     audiences: ["Homeowners", "Landlords", "Commercial businesses", "Property developers"],
     services: [
@@ -315,9 +315,9 @@ export const categories: ServiceCategory[] = [
       "Keep your property in good working order with one reliable contractor. We handle the repairs and maintenance tasks that tend to pile up — from sticking doors and broken gates to roof repairs, painting, tiling and waterproofing.",
       "We work with homeowners, landlords and property managers, and can take on single jobs or a list of repairs in one visit.",
     ],
-    seoTitle: "Property Maintenance & Handyman in Gqeberha",
+    seoTitle: "Property Maintenance & Handyman in South Africa",
     seoDescription:
-      "Handyman and property maintenance services in Gqeberha for homes, rentals and businesses: door, window and gate repairs, roof repairs, painting, tiling and waterproofing.",
+      "Handyman and property maintenance services across South Africa for homes, rentals and businesses: door, window and gate repairs, roof repairs, painting, tiling and waterproofing.",
     image: "roof-tile-pressure-cleaning",
     audiences: ["Homeowners", "Landlords", "Property management companies", "Commercial businesses"],
     services: [
@@ -362,7 +362,7 @@ export const categories: ServiceCategory[] = [
     ],
     seoTitle: "Home & Commercial Renovation Contractors",
     seoDescription:
-      "Renovation contractors in Gqeberha: bathroom and kitchen renovations, home and office renovations, room extensions, flooring, ceilings and property upgrades.",
+      "Renovation contractors across South Africa: bathroom and kitchen renovations, home and office renovations, room extensions, flooring, ceilings and property upgrades.",
     image: null,
     audiences: ["Homeowners", "Landlords", "Commercial businesses", "Property developers"],
     services: [
@@ -400,9 +400,9 @@ export const servicePages: ServicePage[] = [
     category: "building-civil-construction",
     name: "Concrete Slabs & Foundations",
     h1: "Concrete Contractors for Slabs & Foundations",
-    seoTitle: "Concrete Contractors Gqeberha – Slabs & Foundations",
+    seoTitle: "Concrete Contractors South Africa – Slabs & Foundations",
     seoDescription:
-      "Concrete foundations, slabs, casting, pouring and repairs in Gqeberha. Reinforcement, shuttering and finishing for homes, commercial and construction sites.",
+      "Concrete foundations, slabs, casting, pouring and repairs across South Africa. Reinforcement, shuttering and finishing for homes, commercial and construction sites.",
     intro: [
       "A slab or foundation is only as good as the preparation underneath it. We set out, excavate, compact, fix reinforcement and shuttering, then pour, level and finish the concrete so it cures properly.",
       "Our project photos below show some of this work — reinforcement mesh with bar spacers, slab preparation and commercial slabs being poured and screeded.",
@@ -443,9 +443,9 @@ export const servicePages: ServicePage[] = [
     category: "building-civil-construction",
     name: "Paving & Driveways",
     h1: "Paving Contractors for Driveways, Yards & Forecourts",
-    seoTitle: "Paving Contractors Gqeberha – Driveway Paving",
+    seoTitle: "Paving Contractors South Africa – Driveway Paving",
     seoDescription:
-      "Paving installation in Gqeberha: driveway paving, interlocking pavers, kerbing and forecourt paving with proper base preparation and drainage falls.",
+      "Paving installation across South Africa: driveway paving, interlocking pavers, kerbing and forecourt paving with proper base preparation and drainage falls.",
     intro: [
       "Good paving starts below the surface. We excavate, compact a proper base, set levels and falls for drainage, then lay and edge the paving so it stays flat and firm.",
       "We pave residential driveways and walkways as well as larger commercial areas, including forecourt paving at service-station sites.",
@@ -485,9 +485,9 @@ export const servicePages: ServicePage[] = [
     category: "building-civil-construction",
     name: "Retaining & Boundary Walls",
     h1: "Retaining Walls & Boundary Walls",
-    seoTitle: "Retaining Walls & Boundary Walls in Gqeberha",
+    seoTitle: "Retaining Walls & Boundary Walls in South Africa",
     seoDescription:
-      "Retaining walls and boundary walls built in Gqeberha: brick and block walls, foundations, drainage behind retaining walls, plastering and finishing.",
+      "Retaining walls and boundary walls built across South Africa: brick and block walls, foundations, drainage behind retaining walls, plastering and finishing.",
     intro: [
       "Boundary walls give you security and privacy; retaining walls hold back soil and protect your property from erosion. Both need solid foundations and, for retaining walls, proper drainage behind them.",
       "We build brick and block walls, plaster and finish them, and can integrate steel gates and palisade sections from our fabrication workshop.",
@@ -517,9 +517,9 @@ export const servicePages: ServicePage[] = [
     category: "building-civil-construction",
     name: "Building & Extensions",
     h1: "General Building & Building Extensions",
-    seoTitle: "Building Contractors Gqeberha – Extensions",
+    seoTitle: "Building Contractors South Africa – Extensions",
     seoDescription:
-      "General building contractors in Gqeberha: building extensions, bricklaying, blockwork, plastering and site preparation for homes and commercial properties.",
+      "General building contractors across South Africa: building extensions, bricklaying, blockwork, plastering and site preparation for homes and commercial properties.",
     intro: [
       "Need more space? We build extensions and new structures from foundations through brickwork and plaster, coordinating with carpentry, roofing and finishing so the new space blends with the old.",
       "We also take on general building work such as new walls, outbuildings and structural alterations.",
@@ -551,9 +551,9 @@ export const servicePages: ServicePage[] = [
     category: "welding-steel-fabrication",
     name: "Welding Services & Repairs",
     h1: "Welding Services: On-Site Welding & Repairs",
-    seoTitle: "Welding Services Gqeberha – On-Site Welding",
+    seoTitle: "Welding Services South Africa – On-Site Welding",
     seoDescription:
-      "Welding services in Gqeberha: on-site welding, MIG, TIG and arc welding, welding repairs and metal repairs for homes, businesses and industrial sites.",
+      "Welding services across South Africa: on-site welding, MIG, TIG and arc welding, welding repairs and metal repairs for homes, businesses and industrial sites.",
     intro: [
       "Broken bracket, cracked frame or a structure that needs modifying where it stands? We bring the equipment to you for on-site welding, or fabricate and repair in the workshop.",
       "We use MIG, TIG and arc welding processes depending on the material, thickness and location of the work.",
@@ -588,9 +588,9 @@ export const servicePages: ServicePage[] = [
     category: "welding-steel-fabrication",
     name: "Steel Gates, Burglar Bars & Security Doors",
     h1: "Steel Gates, Burglar Bars & Security Doors",
-    seoTitle: "Steel Gates & Burglar Bars in Gqeberha",
+    seoTitle: "Steel Gates & Burglar Bars in South Africa",
     seoDescription:
-      "Custom steel gates, burglar bars, security doors and steel mesh enclosures fabricated and installed in Gqeberha. Gate repairs and modifications too.",
+      "Custom steel gates, burglar bars, security doors and steel mesh enclosures fabricated and installed across South Africa. Gate repairs and modifications too.",
     intro: [
       "We fabricate security steelwork to suit your openings and your property — driveway and pedestrian gates, burglar bars, security doors and lockable steel mesh enclosures.",
       "Everything is measured on site, fabricated to fit and installed securely. We also repair and modify existing gates and bars.",
@@ -620,9 +620,9 @@ export const servicePages: ServicePage[] = [
     category: "welding-steel-fabrication",
     name: "Carports, Staircases & Steel Structures",
     h1: "Carports, Staircases, Platforms & Steel Structures",
-    seoTitle: "Steel Fabrication Gqeberha – Carports & Structures",
+    seoTitle: "Steel Fabrication South Africa – Carports & Structures",
     seoDescription:
-      "Structural steel fabrication in Gqeberha: carports, steel structures, platforms, staircases, handrails, frames and stands fabricated and installed.",
+      "Structural steel fabrication across South Africa: carports, steel structures, platforms, staircases, handrails, frames and stands fabricated and installed.",
     intro: [
       "We fabricate structural and support steelwork — carports, platforms, staircases, handrails, frames and stands — in single pieces or in batches.",
       "Our workshop work includes batches of steel A-frame stands and tank fabrication, so we are comfortable with both repeat production and custom one-offs.",
@@ -653,7 +653,7 @@ export const servicePages: ServicePage[] = [
     category: "industrial-pipe-fitting-mechanical",
     name: "Industrial Pipe Fitting",
     h1: "Industrial Pipe Fitting & Pipe Installation",
-    seoTitle: "Industrial Pipe Fitting Services | Gqeberha",
+    seoTitle: "Industrial Pipe Fitting Services | South Africa",
     seoDescription:
       "Industrial pipe fitting: steel and stainless steel pipe installation, flange installation, pipe supports and underground pipework for industrial and commercial sites.",
     intro: [
@@ -735,7 +735,7 @@ export const servicePages: ServicePage[] = [
     category: "fuel-storage-energy-infrastructure",
     name: "Above-Ground Bulk Fuel Tank Fabrication",
     h1: "Above-Ground Tank Fabrication for Bulk Fuel Storage",
-    seoTitle: "Above-Ground Fuel Tank Fabrication | Gqeberha",
+    seoTitle: "Above-Ground Fuel Tank Fabrication | South Africa",
     seoDescription:
       "Above-ground steel tanks fabricated for bulk fuel storage: shells, end plates, manways, nozzles, stands and bunding, built to your drawings and installed on site.",
     intro: [
@@ -911,9 +911,9 @@ export const servicePages: ServicePage[] = [
     category: "carpentry-woodwork",
     name: "Wooden Decking & Pergolas",
     h1: "Wooden Decking Installation & Pergolas",
-    seoTitle: "Wooden Decking Installation in Gqeberha",
+    seoTitle: "Wooden Decking Installation in South Africa",
     seoDescription:
-      "Wooden decking installation in Gqeberha: pool decks, garden decks, tree decks, timber steps and pergolas built to last. Deck repairs and refinishing too.",
+      "Wooden decking installation across South Africa: pool decks, garden decks, tree decks, timber steps and pergolas built to last. Deck repairs and refinishing too.",
     intro: [
       "A well-built deck extends your living space outdoors. We build pool decks, raised garden decks, decks around trees and timber steps — with solid substructures and properly spaced, fixed boards.",
       "We also build pergolas and timber structures, and repair or refinish existing decks.",
@@ -938,7 +938,7 @@ export const servicePages: ServicePage[] = [
     h1: "Custom Kitchen Cupboards & Built-in Wardrobes",
     seoTitle: "Kitchen Cupboards & Built-in Wardrobes",
     seoDescription:
-      "Custom kitchen cupboards, built-in wardrobes, shelving and storage made to measure in Gqeberha. Installation, repairs and cupboard upgrades.",
+      "Custom kitchen cupboards, built-in wardrobes, shelving and storage made to measure across South Africa. Installation, repairs and cupboard upgrades.",
     intro: [
       "Made-to-measure cupboards make the most of your space. We design, build and install kitchen units, built-in wardrobes, shelving and custom storage to suit your room and budget.",
       "We can also repair or upgrade existing cupboards — new doors, hinges, shelves and worktops.",
@@ -962,9 +962,9 @@ export const servicePages: ServicePage[] = [
     category: "property-maintenance-handyman",
     name: "Handyman Services",
     h1: "Handyman Services for Homes, Rentals & Businesses",
-    seoTitle: "Handyman Services Gqeberha – Home Repairs",
+    seoTitle: "Handyman Services South Africa – Home Repairs",
     seoDescription:
-      "Reliable handyman services in Gqeberha: home repairs, door, window and gate repairs, painting, tiling, fixture installations and general property maintenance.",
+      "Reliable handyman services across South Africa: home repairs, door, window and gate repairs, painting, tiling, fixture installations and general property maintenance.",
     intro: [
       "One call for the repairs that keep piling up. We fix doors, windows and gates, patch and paint, replace tiles, install fixtures and handle general maintenance tasks around homes and businesses.",
       "Because our team also covers building, welding and carpentry, small jobs that turn out bigger than expected don't need a second contractor.",
@@ -986,9 +986,9 @@ export const servicePages: ServicePage[] = [
     category: "property-maintenance-handyman",
     name: "Roof Repairs & Waterproofing",
     h1: "Roof Repairs, Roof Cleaning & Waterproofing",
-    seoTitle: "Roof Repairs & Waterproofing in Gqeberha",
+    seoTitle: "Roof Repairs & Waterproofing in South Africa",
     seoDescription:
-      "Roof repairs, roof tile cleaning, waterproofing and leak repairs in Gqeberha for homes and commercial buildings. Request a quotation.",
+      "Roof repairs, roof tile cleaning, waterproofing and leak repairs across South Africa for homes and commercial buildings. Request a quotation.",
     intro: [
       "Leaks, cracked tiles and dirty roofs shorten the life of a building. We repair roofs, pressure-clean tiled roofs, and apply waterproofing to stop water getting in.",
       "We assess where water is actually entering before recommending a repair, so you don't pay for work you don't need.",
@@ -1013,9 +1013,9 @@ export const servicePages: ServicePage[] = [
     category: "renovations-property-improvements",
     name: "Bathroom Renovations",
     h1: "Bathroom Renovations",
-    seoTitle: "Bathroom Renovations in Gqeberha",
+    seoTitle: "Bathroom Renovations in South Africa",
     seoDescription:
-      "Bathroom renovations in Gqeberha: strip-out, waterproofing, tiling, fixtures, cabinetry and finishing managed by one multi-trade team.",
+      "Bathroom renovations across South Africa: strip-out, waterproofing, tiling, fixtures, cabinetry and finishing managed by one multi-trade team.",
     intro: [
       "A bathroom renovation involves building, waterproofing, tiling, carpentry and finishing. We handle these trades ourselves, keeping the project coordinated and on track.",
       "Whether you want a full remodel or a refresh of tiles and fittings, we will help you plan the work and choose practical finishes.",
@@ -1037,9 +1037,9 @@ export const servicePages: ServicePage[] = [
     category: "renovations-property-improvements",
     name: "Kitchen Renovations",
     h1: "Kitchen Renovations",
-    seoTitle: "Kitchen Renovations in Gqeberha",
+    seoTitle: "Kitchen Renovations in South Africa",
     seoDescription:
-      "Kitchen renovations in Gqeberha: custom cupboards, worktops, tiling, flooring, ceilings and finishing — planned and built by one contractor.",
+      "Kitchen renovations across South Africa: custom cupboards, worktops, tiling, flooring, ceilings and finishing — planned and built by one contractor.",
     intro: [
       "We renovate kitchens end to end — removing old units, making building alterations, then installing custom cupboards, worktops, tiling, flooring and ceilings.",
       "With carpentry and building under one roof, your new kitchen is built to fit the space properly.",

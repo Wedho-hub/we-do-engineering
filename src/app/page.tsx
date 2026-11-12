@@ -68,7 +68,7 @@ const faqs: Faq[] = [
   },
   {
     question: "Which areas do you serve?",
-    answer: `We are based in ${business.city} and take on projects across ${business.serviceAreaLabel}. Send us the project details and location and we will plan the logistics, travel and site set-up with you.`,
+    answer: `We take on projects across ${business.serviceAreaLabel}. Send us the project details and location and we will plan the logistics, travel and site set-up with you.`,
   },
   {
     question: "How do I get a quotation?",

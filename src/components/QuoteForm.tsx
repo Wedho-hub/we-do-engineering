@@ -402,7 +402,7 @@ export default function QuoteForm({
             id={id("location")}
             name="location"
             autoComplete="address-level2"
-            placeholder="Town or city, e.g. Gqeberha, Johannesburg or Gaborone"
+            placeholder="Town or city, e.g. Johannesburg, Durban or Gaborone"
             value={fields.location}
             onChange={(e) => update("location", e.target.value)}
             aria-invalid={!!errors.location}

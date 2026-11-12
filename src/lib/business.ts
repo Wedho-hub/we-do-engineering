@@ -38,13 +38,14 @@ export const business = {
   whatsapp,
   email,
 
-  /** Primary city used for local SEO copy. */
-  city: "Gqeberha",
-  region: "Eastern Cape",
+  /** Physical base (Cape Town, Western Cape) — the business address in structured data. */
+  city: "Cape Town",
+  region: "Western Cape",
   country: "ZA",
   /**
    * Areas served, confirmed by the owner: the whole of South Africa and the wider
-   * Southern African region, from the Gqeberha base. These drive page copy and structured data.
+   * Southern African region. These drive page copy, meta tags and structured data.
+   * (`city`/`region` above are only the physical address in structured data.)
    */
   serviceAreas: [
     { name: "South Africa", type: "Country" },

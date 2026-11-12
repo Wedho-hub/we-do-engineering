@@ -7,7 +7,7 @@
 export type Testimonial = {
   quote: string;
   name: string;
-  /** e.g. "Homeowner, Walmer" or "Maintenance Manager" — only with the customer's permission. */
+  /** e.g. "Homeowner, Claremont" or "Maintenance Manager" — only with the customer's permission. */
   context?: string;
   category?: string;
 };

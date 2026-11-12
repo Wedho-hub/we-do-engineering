@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps<"/services/[categor
     description: category.seoDescription,
     path: categoryHref(category.slug),
     image: photo ? { url: photo.src, width: photo.width, height: photo.height, alt: photo.alt } : undefined,
-    keywords: [category.name, `${category.name} South Africa`, `${category.name} Southern Africa`, `${category.name} Gqeberha`],
+    keywords: [category.name, `${category.name} South Africa`, `${category.name} Southern Africa`, `${category.name} SADC region`],
   });
 }
 

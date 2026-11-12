@@ -37,7 +37,7 @@ const monoFont = IBM_Plex_Mono({
 });
 
 const defaultDescription =
-  "Hamile Engineering – building and civil construction, welding and steel fabrication, industrial pipe fitting, carpentry, property maintenance and renovations across South Africa and Southern Africa, from our base in Gqeberha. Request a quote.";
+  "Hamile Engineering – building and civil construction, welding and steel fabrication, industrial pipe fitting, carpentry, property maintenance and renovations across South Africa and the Southern African region. Request a quote.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(business.siteUrl),

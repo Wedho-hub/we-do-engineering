@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
           <p className="flex items-center gap-2">
             <UiIcon name="pin" className="h-4 w-4 text-accent" />
-            Serving {business.serviceAreaShort} · Residential, commercial & industrial
+            Based in {business.city} · Serving South Africa &amp; the region · Residential, commercial &amp; industrial
           </p>
           <div className="flex items-center gap-6">
             <a href={business.phoneHref} className="flex items-center gap-2 hover:text-accent-soft">

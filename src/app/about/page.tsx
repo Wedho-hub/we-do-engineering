@@ -6,7 +6,6 @@ import { Breadcrumbs } from "@/components/seo";
 import { CheckList, Container, SectionHeading } from "@/components/ui";
 import { getPhoto } from "@/data/portfolio";
 import { categories, categoryHref } from "@/data/services";
-import { business } from "@/lib/business";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -57,7 +56,7 @@ export default function AboutPage() {
             <SectionHeading align="left" eyebrow="Who We Are" title="Practical skills across the trades" />
             <div className="space-y-4 text-lg leading-relaxed text-ink/75">
               <p>
-                We are a {business.city}-based contractor working across South Africa and the wider region on homes, commercial properties, construction sites and
+                We are a South African contractor working across the country and the wider Southern African region on homes, commercial properties, construction sites and
                 industrial facilities. Our team works across concrete and civil works, welding and steel fabrication,
                 industrial pipe fitting, fuel storage and dispensing infrastructure, renewable energy mechanical
                 installations, carpentry, maintenance and renovations.
